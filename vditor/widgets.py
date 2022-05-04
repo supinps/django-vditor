@@ -1,7 +1,7 @@
 from django import forms
 from django.forms.utils import flatatt
 from django.forms.widgets import get_default_renderer
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 
@@ -24,7 +24,7 @@ class VditorWidget(forms.Textarea):
                 'widget.html',
                 {
                     'final_attrs': flatatt(final_attrs),
-                    'value': conditional_escape(force_text(value)),
+                    'value': conditional_escape(force_str(value)),
                     'id': final_attrs['id'],
                     'config': self.config,
                 }
